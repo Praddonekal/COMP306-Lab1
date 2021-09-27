@@ -26,8 +26,8 @@ namespace _301145218_Donekal__Lab1
     public partial class MainWindow : Window
     {
 
-        String accessKeyID = "AKIAUV2TTBTGJCOWEYOM";
-        String secretKey = "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";
+        String accessKeyID = "";//Access Key Here
+        String secretKey = ""; //Secret Key Here
         public MainWindow()
         {
             InitializeComponent();

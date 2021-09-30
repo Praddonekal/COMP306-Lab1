@@ -68,3 +68,4 @@ C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_L
 C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\obj\Debug\netcoreapp3.1\301145218(Donekal)_Lab1.dll
 C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\obj\Debug\netcoreapp3.1\301145218(Donekal)_Lab1.pdb
 C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\obj\Debug\netcoreapp3.1\301145218(Donekal)_Lab1.genruntimeconfig.cache
+C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\bin\Debug\netcoreapp3.1\AppSettings.json

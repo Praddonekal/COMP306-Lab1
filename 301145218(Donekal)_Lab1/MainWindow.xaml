@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Create Bucket" HorizontalAlignment="Left" Margin="66,137,0,0" VerticalAlignment="Top" Height="94" Width="181" Click="Button_Click"/>
-        <Button Content="Object Level Operations" HorizontalAlignment="Center" Margin="0,137,0,0" VerticalAlignment="Top" Height="94" Width="197" Click="Button_Click_2"/>
+        <Button x:Name="buttonCreate" Content="Create Bucket" HorizontalAlignment="Left" Margin="66,137,0,0" VerticalAlignment="Top" Height="94" Width="181" Click="Button_Click"/>
+        <Button x:Name="objectButton" Content="Object Level Operations" HorizontalAlignment="Center" Margin="0,137,0,0" VerticalAlignment="Top" Height="94" Width="197" Click="Button_Click_2"/>
         <Button Content="Exit" HorizontalAlignment="Left" Margin="551,137,0,0" VerticalAlignment="Top" Height="94" Width="184" Click="Button_Click_1"/>
 
     </Grid>

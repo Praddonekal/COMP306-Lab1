@@ -25,8 +25,7 @@ namespace _301145218_Donekal__Lab1
     /// </summary>
     public partial class bucket : Window 
     {
-        String accessKeyID = "";//Access Key Here
-        String secretKey = ""; //Secret Key Here
+         
 
         public bucket()
         {
@@ -45,6 +44,10 @@ namespace _301145218_Donekal__Lab1
 
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
+
+            String accessKeyID = builder.Build().GetSection("AWSCredentials").GetSection("AccesskeyID").Value;
+            String secretKey = builder.Build().GetSection("AWSCredentials").GetSection("Secretaccesskey").Value;
 
             var credentials = new BasicAWSCredentials(accessKeyID, secretKey);
 
@@ -56,7 +59,18 @@ namespace _301145218_Donekal__Lab1
                 BucketName = textboxbucket.Text
             });
             message.Content = "Bucket Successfully Added";
-            textboxbucket.Text = "";
+
+            using (AmazonS3Client s3Client = new AmazonS3Client(credentials, RegionEndpoint.USEast1))
+            {
+                ListBucketsResponse response = await s3Client.ListBucketsAsync();
+                foreach (S3Bucket buckets in response.Buckets)
+                {
+
+                    Console.WriteLine(buckets.BucketName + " " + buckets.CreationDate.ToShortDateString());
+                    item.Add(new items { Bucket = buckets.BucketName, Creation = buckets.CreationDate.ToShortDateString() + " " + buckets.CreationDate.ToShortTimeString() });
+                }
+            }
+            dataGrid1.ItemsSource = item;
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)

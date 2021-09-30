@@ -25,8 +25,8 @@ namespace _301145218_Donekal__Lab1
     /// </summary>
     public partial class Objects : Window
     {
-        String accessKeyID = "";//Access Key Here
-        String secretKey = ""; //Secret Key Here
+        List<items> item = new List<items>();
+
         public Objects()
         {
             InitializeComponent();
@@ -34,8 +34,6 @@ namespace _301145218_Donekal__Lab1
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            
-        
         }
 
         class items
@@ -58,8 +56,13 @@ namespace _301145218_Donekal__Lab1
 
         private async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            item.Clear();
+            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
+
+            String accessKeyID = builder.Build().GetSection("AWSCredentials").GetSection("AccesskeyID").Value;
+            String secretKey = builder.Build().GetSection("AWSCredentials").GetSection("Secretaccesskey").Value;
+
             var client = new AmazonS3Client(accessKeyID, secretKey);
-            List<items> item = new List<items>();
 
             try
             {
@@ -81,7 +84,7 @@ namespace _301145218_Donekal__Lab1
                 Console.WriteLine("S3 error occurred. Exception: " + amazonS3Exception.ToString());
             }
             objectdatagrid.ItemsSource = item;
-
+            objectdatagrid.Items.Refresh();
         }
 
             private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -91,6 +94,12 @@ namespace _301145218_Donekal__Lab1
 
         private async void Button_Click_3(object sender, RoutedEventArgs e)
         {
+            item.Clear();
+            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
+
+            String accessKeyID = builder.Build().GetSection("AWSCredentials").GetSection("AccesskeyID").Value;
+            String secretKey = builder.Build().GetSection("AWSCredentials").GetSection("Secretaccesskey").Value;
+
             var client = new AmazonS3Client(accessKeyID, secretKey);
 
                 // 2. Put the object-set ContentType and add metadata.
@@ -100,9 +109,30 @@ namespace _301145218_Donekal__Lab1
                     FilePath = fileTxtBox.Text,
                 };
 
-                putRequest2.Metadata.Add("x-amz-meta-title", "someTitle");
                 PutObjectResponse response2 = await client.PutObjectAsync(putRequest2);
-                objectdatagrid.Items.Refresh();
+            try
+            {
+                ListObjectsV2Request request = new ListObjectsV2Request
+                {
+                    BucketName = cmbbox.SelectedItem.ToString(),
+                };
+                ListObjectsV2Response response;
+
+                response = await client.ListObjectsV2Async(request);
+
+                foreach (S3Object obj in response.S3Objects)
+                {
+                    item.Add(new items { Object = obj.Key, Size = obj.Size });
+                }
+            }
+            catch (AmazonS3Exception amazonS3Exception)
+            {
+                Console.WriteLine("S3 error occurred. Exception: " + amazonS3Exception.ToString());
+            }
+            objectdatagrid.ItemsSource = item;
+            objectdatagrid.Items.Refresh();
+
+
         }
     }
 }

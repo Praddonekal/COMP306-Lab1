@@ -25,9 +25,6 @@ namespace _301145218_Donekal__Lab1
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        String accessKeyID = "";//Access Key Here
-        String secretKey = ""; //Secret Key Here
         public MainWindow()
         {
             InitializeComponent();
@@ -35,6 +32,11 @@ namespace _301145218_Donekal__Lab1
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
+            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
+
+            var accessKeyID = builder.Build().GetSection("AWSCredentials").GetSection("AccesskeyID").Value;
+            var secretKey = builder.Build().GetSection("AWSCredentials").GetSection("Secretaccesskey").Value;
+
             bucket form = new bucket();
 
             var credentials = new BasicAWSCredentials(accessKeyID, secretKey);
@@ -53,7 +55,6 @@ namespace _301145218_Donekal__Lab1
                 }
             }
             form.dataGrid1.ItemsSource = item;
-
             form.Show();
         }
 
@@ -70,6 +71,11 @@ namespace _301145218_Donekal__Lab1
 
         private async void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
+
+            String accessKeyID = builder.Build().GetSection("AWSCredentials").GetSection("AccesskeyID").Value;
+            String secretKey = builder.Build().GetSection("AWSCredentials").GetSection("Secretaccesskey").Value;
+
             Objects form1 = new Objects();
 
             var credentials = new BasicAWSCredentials(accessKeyID, secretKey);

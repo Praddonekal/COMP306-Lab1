@@ -25,6 +25,9 @@ namespace _301145218_Donekal__Lab1
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        static Connection conn = new Connection();
+        AmazonS3Client client = conn.Connect();
         public MainWindow()
         {
             InitializeComponent();
@@ -32,28 +35,17 @@ namespace _301145218_Donekal__Lab1
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
-
-            var accessKeyID = builder.Build().GetSection("AWSCredentials").GetSection("AccesskeyID").Value;
-            var secretKey = builder.Build().GetSection("AWSCredentials").GetSection("Secretaccesskey").Value;
 
             bucket form = new bucket();
 
-            var credentials = new BasicAWSCredentials(accessKeyID, secretKey);
-
-            var s3Client1 = new AmazonS3Client(accessKeyID, secretKey);
             List<items> item = new List<items>();
 
-            using (AmazonS3Client s3Client = new AmazonS3Client(credentials, RegionEndpoint.USEast1))
-            {
-                ListBucketsResponse response = await s3Client.ListBucketsAsync();
+            ListBucketsResponse response = await client.ListBucketsAsync();
                 foreach (S3Bucket buckets in response.Buckets)
                 {
-
                     Console.WriteLine(buckets.BucketName + " " + buckets.CreationDate.ToShortDateString());
                     item.Add(new items { Bucket = buckets.BucketName, Creation = buckets.CreationDate.ToShortDateString() + " " + buckets.CreationDate.ToShortTimeString() });
                 }
-            }
             form.dataGrid1.ItemsSource = item;
             form.Show();
         }
@@ -71,23 +63,12 @@ namespace _301145218_Donekal__Lab1
 
         private async void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
-
-            String accessKeyID = builder.Build().GetSection("AWSCredentials").GetSection("AccesskeyID").Value;
-            String secretKey = builder.Build().GetSection("AWSCredentials").GetSection("Secretaccesskey").Value;
-
             Objects form1 = new Objects();
-
-            var credentials = new BasicAWSCredentials(accessKeyID, secretKey);
-            var s3Client1 = new AmazonS3Client(accessKeyID, secretKey);
-            using (AmazonS3Client s3Client = new AmazonS3Client(credentials, RegionEndpoint.USEast1))
-            {
-                ListBucketsResponse response = await s3Client.ListBucketsAsync();
+            ListBucketsResponse response = await client.ListBucketsAsync();
                 foreach (S3Bucket buckets in response.Buckets)
                 {
                     form1.cmbbox.Items.Add(buckets.BucketName);
                 }
-            }
             form1.Show();
         }
     }

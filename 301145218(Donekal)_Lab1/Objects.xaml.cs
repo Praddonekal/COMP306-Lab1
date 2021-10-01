@@ -25,6 +25,9 @@ namespace _301145218_Donekal__Lab1
     /// </summary>
     public partial class Objects : Window
     {
+
+        static Connection conn = new Connection();
+        AmazonS3Client client = conn.Connect();
         List<items> item = new List<items>();
 
         public Objects()
@@ -38,6 +41,7 @@ namespace _301145218_Donekal__Lab1
 
         class items
         {
+            
             public String Object { get; set; }
             public long Size { get; set; }
         }
@@ -57,12 +61,6 @@ namespace _301145218_Donekal__Lab1
         private async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             item.Clear();
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
-
-            String accessKeyID = builder.Build().GetSection("AWSCredentials").GetSection("AccesskeyID").Value;
-            String secretKey = builder.Build().GetSection("AWSCredentials").GetSection("Secretaccesskey").Value;
-
-            var client = new AmazonS3Client(accessKeyID, secretKey);
 
             try
             {
@@ -95,14 +93,7 @@ namespace _301145218_Donekal__Lab1
         private async void Button_Click_3(object sender, RoutedEventArgs e)
         {
             item.Clear();
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
 
-            String accessKeyID = builder.Build().GetSection("AWSCredentials").GetSection("AccesskeyID").Value;
-            String secretKey = builder.Build().GetSection("AWSCredentials").GetSection("Secretaccesskey").Value;
-
-            var client = new AmazonS3Client(accessKeyID, secretKey);
-
-                // 2. Put the object-set ContentType and add metadata.
                 var putRequest2 = new PutObjectRequest
                 {
                     BucketName = cmbbox.SelectedItem.ToString(),

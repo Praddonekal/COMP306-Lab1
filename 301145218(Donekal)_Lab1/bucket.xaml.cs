@@ -25,7 +25,9 @@ namespace _301145218_Donekal__Lab1
     /// </summary>
     public partial class bucket : Window 
     {
-         
+
+        static Connection conn = new Connection();
+        AmazonS3Client client = conn.Connect();
 
         public bucket()
         {
@@ -44,32 +46,20 @@ namespace _301145218_Donekal__Lab1
 
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
-
-            String accessKeyID = builder.Build().GetSection("AWSCredentials").GetSection("AccesskeyID").Value;
-            String secretKey = builder.Build().GetSection("AWSCredentials").GetSection("Secretaccesskey").Value;
-
-            var credentials = new BasicAWSCredentials(accessKeyID, secretKey);
-
-            var s3Client1 = new AmazonS3Client(accessKeyID, secretKey);
             List<items> item = new List<items>();
 
-            var respons = await s3Client1.PutBucketAsync(new PutBucketRequest
+            var respons = await client.PutBucketAsync(new PutBucketRequest
             {
                 BucketName = textboxbucket.Text
             });
             message.Content = "Bucket Successfully Added";
 
-            using (AmazonS3Client s3Client = new AmazonS3Client(credentials, RegionEndpoint.USEast1))
-            {
-                ListBucketsResponse response = await s3Client.ListBucketsAsync();
+            ListBucketsResponse response = await client.ListBucketsAsync();
                 foreach (S3Bucket buckets in response.Buckets)
                 {
-
                     Console.WriteLine(buckets.BucketName + " " + buckets.CreationDate.ToShortDateString());
                     item.Add(new items { Bucket = buckets.BucketName, Creation = buckets.CreationDate.ToShortDateString() + " " + buckets.CreationDate.ToShortTimeString() });
                 }
-            }
             dataGrid1.ItemsSource = item;
         }
 

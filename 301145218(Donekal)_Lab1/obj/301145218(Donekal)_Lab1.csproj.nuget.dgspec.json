@@ -59,6 +59,10 @@
             "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "Syncfusion.PdfViewer.WPF": {
+              "target": "Package",
+              "version": "[19.3.0.45, )"
             }
           },
           "imports": [

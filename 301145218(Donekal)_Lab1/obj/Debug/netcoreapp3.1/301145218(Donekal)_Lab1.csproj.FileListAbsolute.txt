@@ -34,6 +34,7 @@ C:\Users\Pradyumna\source\repos\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\
 C:\Users\Pradyumna\source\repos\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\obj\Debug\netcoreapp3.1\Objects.g.cs
 C:\Users\Pradyumna\source\repos\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\obj\Debug\netcoreapp3.1\Objects.baml
 C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\bin\Debug\netcoreapp3.1\301145218(Donekal)_Lab1.exe
+C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\bin\Debug\netcoreapp3.1\AppSettings.json
 C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\bin\Debug\netcoreapp3.1\301145218(Donekal)_Lab1.deps.json
 C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\bin\Debug\netcoreapp3.1\301145218(Donekal)_Lab1.runtimeconfig.json
 C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\bin\Debug\netcoreapp3.1\301145218(Donekal)_Lab1.runtimeconfig.dev.json
@@ -50,7 +51,6 @@ C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_L
 C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\bin\Debug\netcoreapp3.1\System.Text.Json.dll
-C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\obj\Debug\netcoreapp3.1\301145218(Donekal)_Lab1.csprojAssemblyReference.cache
 C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\obj\Debug\netcoreapp3.1\bucket.g.cs
 C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\obj\Debug\netcoreapp3.1\MainWindow.g.cs
 C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\obj\Debug\netcoreapp3.1\Objects.g.cs
@@ -68,4 +68,9 @@ C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_L
 C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\obj\Debug\netcoreapp3.1\301145218(Donekal)_Lab1.dll
 C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\obj\Debug\netcoreapp3.1\301145218(Donekal)_Lab1.pdb
 C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\obj\Debug\netcoreapp3.1\301145218(Donekal)_Lab1.genruntimeconfig.cache
-C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\bin\Debug\netcoreapp3.1\AppSettings.json
+C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\bin\Debug\netcoreapp3.1\Syncfusion.Compression.Base.dll
+C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\bin\Debug\netcoreapp3.1\Syncfusion.Licensing.dll
+C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\bin\Debug\netcoreapp3.1\Syncfusion.Pdf.Base.dll
+C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\bin\Debug\netcoreapp3.1\Syncfusion.PdfViewer.WPF.dll
+C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\bin\Debug\netcoreapp3.1\Syncfusion.Shared.WPF.dll
+C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab1\obj\Debug\netcoreapp3.1\301145218(Donekal)_Lab1.csprojAssemblyReference.cache

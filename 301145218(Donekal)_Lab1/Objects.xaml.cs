@@ -35,7 +35,7 @@ namespace _301145218_Donekal__Lab1
             InitializeComponent();
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
         }
 

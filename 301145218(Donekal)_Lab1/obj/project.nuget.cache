@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ahE/Ipy+KXrrsqrSZipuJUlTmydgOBK8vBfxlog2DspeENQ7ce6luO0XV/czIemuZDHNHm075wqyUoZUPPXwjw==",
+  "dgSpecHash": "dyvle88ppsUDJflCgmG9k8MmhEylKc887dqKtqQMqPkcs8EbmnD8o88pEUxK+bbhsb3Sp7iryetZruGwsKfLlA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Pradyumna\\OneDrive\\Desktop\\301145218(Donekal)_Lab1\\301145218(Donekal)_Lab1\\301145218(Donekal)_Lab1.csproj",
   "expectedPackageFiles": [
@@ -14,6 +14,11 @@
     "C:\\Users\\Pradyumna\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\5.0.0\\microsoft.extensions.fileproviders.physical.5.0.0.nupkg.sha512",
     "C:\\Users\\Pradyumna\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\5.0.0\\microsoft.extensions.filesystemglobbing.5.0.0.nupkg.sha512",
     "C:\\Users\\Pradyumna\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "C:\\Users\\Pradyumna\\.nuget\\packages\\syncfusion.compression.base\\19.3.0.45\\syncfusion.compression.base.19.3.0.45.nupkg.sha512",
+    "C:\\Users\\Pradyumna\\.nuget\\packages\\syncfusion.licensing\\19.3.0.45\\syncfusion.licensing.19.3.0.45.nupkg.sha512",
+    "C:\\Users\\Pradyumna\\.nuget\\packages\\syncfusion.pdf.wpf\\19.3.0.45\\syncfusion.pdf.wpf.19.3.0.45.nupkg.sha512",
+    "C:\\Users\\Pradyumna\\.nuget\\packages\\syncfusion.pdfviewer.wpf\\19.3.0.45\\syncfusion.pdfviewer.wpf.19.3.0.45.nupkg.sha512",
+    "C:\\Users\\Pradyumna\\.nuget\\packages\\syncfusion.shared.wpf\\19.3.0.45\\syncfusion.shared.wpf.19.3.0.45.nupkg.sha512",
     "C:\\Users\\Pradyumna\\.nuget\\packages\\system.text.json\\5.0.0\\system.text.json.5.0.0.nupkg.sha512"
   ],
   "logs": []

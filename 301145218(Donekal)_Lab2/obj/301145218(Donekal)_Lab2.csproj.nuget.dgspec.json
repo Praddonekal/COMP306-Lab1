@@ -1,0 +1,91 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Pradyumna\\OneDrive\\Desktop\\301145218(Donekal)_Lab1\\301145218(Donekal)_Lab2\\301145218(Donekal)_Lab2.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Pradyumna\\OneDrive\\Desktop\\301145218(Donekal)_Lab1\\301145218(Donekal)_Lab2\\301145218(Donekal)_Lab2.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Pradyumna\\OneDrive\\Desktop\\301145218(Donekal)_Lab1\\301145218(Donekal)_Lab2\\301145218(Donekal)_Lab2.csproj",
+        "projectName": "301145218(Donekal)_Lab2",
+        "projectPath": "C:\\Users\\Pradyumna\\OneDrive\\Desktop\\301145218(Donekal)_Lab1\\301145218(Donekal)_Lab2\\301145218(Donekal)_Lab2.csproj",
+        "packagesPath": "C:\\Users\\Pradyumna\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Pradyumna\\OneDrive\\Desktop\\301145218(Donekal)_Lab1\\301145218(Donekal)_Lab2\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Pradyumna\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "AWSSDK.DynamoDBv2": {
+              "target": "Package",
+              "version": "[3.7.0.80, )"
+            },
+            "AWSSDK.S3": {
+              "target": "Package",
+              "version": "[3.7.3.12, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.FileExtensions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Syncfusion.PdfViewer.WPF": {
+              "target": "Package",
+              "version": "[19.3.0.45, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

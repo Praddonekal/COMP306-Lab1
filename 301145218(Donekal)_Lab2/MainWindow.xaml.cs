@@ -249,10 +249,10 @@ namespace _301145218_Donekal__Lab2
                 if (email == result & password == pass)
                 {
 
-                    //BooksList booksForm = new BooksList(emailInput);
+                    BooksList booksForm = new BooksList(emailInput);
 
                     MessageBox.Show("Successfully Logged In");
-                    //booksForm.Show();
+                    booksForm.Show();
                 }
                 else
                 {

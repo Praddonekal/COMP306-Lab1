@@ -35,3 +35,5 @@ C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_L
 C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab2\obj\Debug\netcoreapp3.1\301145218(Donekal)_Lab2.dll
 C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab2\obj\Debug\netcoreapp3.1\301145218(Donekal)_Lab2.pdb
 C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab2\obj\Debug\netcoreapp3.1\301145218(Donekal)_Lab2.genruntimeconfig.cache
+C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab2\obj\Debug\netcoreapp3.1\BooksList.g.cs
+C:\Users\Pradyumna\OneDrive\Desktop\301145218(Donekal)_Lab1\301145218(Donekal)_Lab2\obj\Debug\netcoreapp3.1\BooksList.baml

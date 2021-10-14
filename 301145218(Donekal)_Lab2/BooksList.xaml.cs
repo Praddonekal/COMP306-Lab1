@@ -140,21 +140,21 @@ namespace _301145218_Donekal__Lab2
 
         private void buttn1(object sender, RoutedEventArgs e)
         {
-           // PdfViewer viewForm = new PdfViewer(userEmail,"title1");
-           // viewForm.Show();
+            PdfViewer viewForm = new PdfViewer(userEmail,"title1");
+            viewForm.Show();
 
         }
 
         private void buttn2(object sender, RoutedEventArgs e)
         {
-           // PdfViewer viewForm = new PdfViewer(userEmail,"title2");
-            //viewForm.Show();
+            PdfViewer viewForm = new PdfViewer(userEmail,"title2");
+            viewForm.Show();
 
         }
         private void buttn3(object sender, RoutedEventArgs e)
         {
-           // PdfViewer viewForm = new PdfViewer(userEmail, "title3");
-            //viewForm.Show();
+            PdfViewer viewForm = new PdfViewer(userEmail, "title3");
+            viewForm.Show();
         }
 
 

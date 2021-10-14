@@ -122,7 +122,7 @@ namespace _301145218_Donekal__Lab2
                 {
                     new AttributeDefinition
                     {
-                        AttributeName="UserEmail",
+                        AttributeName="UserEmail", 
                         AttributeType=ScalarAttributeType.S
                     }
                 }
@@ -241,27 +241,27 @@ namespace _301145218_Donekal__Lab2
             }
             else
             {
-                Document doc = await table.GetItemAsync(email);
-                string emailInput = doc.Values.ElementAt(1);
-                string userPasword = doc.Values.ElementAt(0);
-                string result = emailInput;
-                string pass = userPasword;
-                if (email == result & password == pass)
-                {
+                    Document doc = await table.GetItemAsync(email);
+                    string emailInput = doc.Values.ElementAt(1);
+                    string userPasword = doc.Values.ElementAt(0);
+                    string result = emailInput;
+                    string pass = userPasword;
+                    if (email == result & password == pass)
+                    {
 
-                    BooksList booksForm = new BooksList(emailInput);
+                        BooksList booksForm = new BooksList(emailInput);
 
-                    MessageBox.Show("Successfully Logged In");
-                    booksForm.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Incorrect Email or Password entered!");
-                }
+                        MessageBox.Show("Successfully Logged In");
+                        booksForm.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Incorrect Email or Password entered!");
+                    }
 
             }
         }
-
+       
     }
 
 }

@@ -186,26 +186,16 @@ namespace _301145218_Donekal__Lab2
             user.Password = TxtPassword.Password;
             var book = new Document();
             book["UserEmail"] = email;
-            book["BookTitle1"] = "AWS Certified Solutions";
+            book["BookTitle1"] = "AWS Certified Solutions Architect Study Guide, 2nd Edition by Ben Piper, David Clinton";
             book["DateTime1"] = DateTime.Now;
             book["LastPage1"] = 1;
-            book["BookTitle2"] = "Beginning Serverless Computing";
+            book["BookTitle2"] = "Beginning Serverless Computing Developing with Amazon Web Services, Microsoft Azure, and Google Cloud by Maddie Stigler";
             book["DateTime2"] = DateTime.Now;
             book["LastPage2"] = 1;
-            book["BookTitle3"] = "Docker";
+            book["BookTitle3"] = "Docker Complete Guide To Docker For Beginners And Intermediates by Berg, Craig";
             book["DateTime3"] = DateTime.Now;
             book["LastPage3"] = 1;
-            /*
-            user.BookTitle1 = "AWS Certified Solutions";
-            user.DateTime1 = DateTime.Now;
-            user.LastPage1 = Convert.ToInt32("1");
-            user.BookTitle2 = "Beginning Serverless Computing";
-            user.DateTime2 = DateTime.Now;
-            user.LastPage2 = Convert.ToInt32("1");
-            user.BookTitle3 = "Docker";
-            user.DateTime3 = DateTime.Now;
-            user.LastPage3 = Convert.ToInt32("1");
-            */
+
             if (userExisted)
             {
                 MessageBox.Show("Account exists already!", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);

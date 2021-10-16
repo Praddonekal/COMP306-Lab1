@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="BooksList" Height="450" Width="800">
     <Grid>
-        <Label x:Name="booksLabel" Content="Hello" HorizontalAlignment="Left" Margin="38,33,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.104,-0.229" Width="320"/>
-        <Button x:Name="button1" Content="Button2" HorizontalAlignment="Left" Margin="37,82,0,0" VerticalAlignment="Top" Height="67" Width="321" Background="White" BorderBrush="#FF0600FF" Foreground="Black"/>
-        <Button x:Name="button2" Content="Button2" HorizontalAlignment="Left" Margin="37,182,0,0" VerticalAlignment="Top" Height="67" Width="321" Background="White" BorderBrush="#FF0600FF" Foreground="Black"/>
-        <Button x:Name="button3" Content="Button3" HorizontalAlignment="Left" Margin="37,277,0,0" VerticalAlignment="Top" Height="71" Width="321" Background="White" BorderBrush="#FF0600FF" Foreground="Black"/>
+        <Label x:Name="booksLabel" Content="Hello" HorizontalAlignment="Left" Margin="38,33,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.104,-0.229" Width="320" FontSize="16"/>
+        <Button x:Name="button1" Content="Button2" HorizontalAlignment="Left" Margin="37,82,0,0" VerticalAlignment="Top" Height="67" Width="602" Background="White" BorderBrush="#FF0600FF" Foreground="Black"/>
+        <Button x:Name="button2" Content="Button2" HorizontalAlignment="Left" Margin="37,182,0,0" VerticalAlignment="Top" Height="67" Width="602" Background="White" BorderBrush="#FF0600FF" Foreground="Black"/>
+        <Button x:Name="button3" Content="Button3" HorizontalAlignment="Left" Margin="37,277,0,0" VerticalAlignment="Top" Height="71" Width="602" Background="White" BorderBrush="#FF0600FF" Foreground="Black"/>
     </Grid>
 </Window>

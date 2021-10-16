@@ -12,6 +12,8 @@
 
     <Grid x:Name="bookmarkButton">
         <PdfViewer:PdfViewerControl x:Name="pdfviewer1" Margin="0,74,0,0"/>
-        <Button Content="Button" HorizontalAlignment="Center" Margin="0,29,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button Content="Bookmark" HorizontalAlignment="Center" Margin="0,29,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Label x:Name="bookmarkLabel" Content="PageNo" HorizontalAlignment="Left" Margin="887,26,0,0" VerticalAlignment="Top" Width="51"/>
+        <Label Content="Last Bookmarked Page:" HorizontalAlignment="Left" Margin="754,26,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

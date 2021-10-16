@@ -47,7 +47,7 @@ namespace _301145218_Donekal__Lab2
 
             if (bookTitle.Equals("title1"))
             {
-                pdfviewer1.ItemSource = GetBook1(); 
+                pdfviewer1.ItemSource = GetBook1();
             }
             else if (bookTitle.Equals("title2"))
             {
@@ -57,8 +57,43 @@ namespace _301145218_Donekal__Lab2
             {
                 pdfviewer1.ItemSource = GetBook3(); 
             }
+            Bookmark(bookTitle);
         }
 
+        private async void Bookmark(String title)
+        {
+            string bookmark;
+
+            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
+                    .AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
+            var accessKeyID = builder.Build().GetSection("AWSCredentials").GetSection("AccesskeyID").Value;
+            var secretKey = builder.Build().GetSection("AWSCredentials").GetSection("Secretaccesskey").Value;
+
+            var credentials = new BasicAWSCredentials(accessKeyID, secretKey);
+
+            AmazonDynamoDBClient client = new AmazonDynamoDBClient(credentials, Amazon.RegionEndpoint.USEast1);
+            Table table = Table.LoadTable(client, "Bookshelf");
+
+            Document doc = await table.GetItemAsync(userEmail);
+
+            if(title.Equals("title1"))
+            {
+                bookmark = doc.Values.ElementAt(7);
+            }
+            else if(title.Equals("title2"))
+            {
+                bookmark = doc.Values.ElementAt(8);
+            }
+            else if(title.Equals("title3"))
+            {
+                bookmark = doc.Values.ElementAt(9);
+            }
+            else
+            {
+                bookmark = "No book specified";
+            }
+            bookmarkLabel.Content = bookmark;
+        }
 
         private void Window_Closed(object sender, EventArgs e)
         {
@@ -90,7 +125,6 @@ namespace _301145218_Donekal__Lab2
 
             UpdateItemOperationConfig config = new UpdateItemOperationConfig
             {
-                // Get updated item in response.
                 ReturnValues = ReturnValues.AllNewAttributes
             };
             Table table = Table.LoadTable(client, "Bookshelf");
@@ -116,7 +150,6 @@ namespace _301145218_Donekal__Lab2
 
             UpdateItemOperationConfig config = new UpdateItemOperationConfig
             {
-                // Get updated item in response.
                 ReturnValues = ReturnValues.AllNewAttributes
             };
             Table table = Table.LoadTable(client, "Bookshelf");
@@ -142,7 +175,6 @@ namespace _301145218_Donekal__Lab2
 
             UpdateItemOperationConfig config = new UpdateItemOperationConfig
             {
-                // Get updated item in response.
                 ReturnValues = ReturnValues.AllNewAttributes
             };
             Table table = Table.LoadTable(client, "Bookshelf");
@@ -165,8 +197,8 @@ namespace _301145218_Donekal__Lab2
             AmazonS3Client client = new AmazonS3Client(accessKeyID, secretKey);
 
             GetObjectRequest request = new GetObjectRequest();
-            request.BucketName = "newsamplebucket-pradyumna";
-            request.Key = "Runali.pdf";
+            request.BucketName = "new-pradyumna";
+            request.Key = "AWS Certified Solutions Architect Study Guide, 2nd Edition by Ben Piper, David Clinton.pdf";
             GetObjectResponse response = client.GetObjectAsync(request).Result;
 
             MemoryStream docStream = new MemoryStream();
@@ -184,8 +216,8 @@ namespace _301145218_Donekal__Lab2
             AmazonS3Client client = new AmazonS3Client(accessKeyID, secretKey);
 
             GetObjectRequest request = new GetObjectRequest();
-            request.BucketName = "newsamplebucket-pradyumna";
-            request.Key = "CanadaTravel.pdf";
+            request.BucketName = "new-pradyumna";
+            request.Key = "Beginning Serverless Computing Developing with Amazon Web Services, Microsoft Azure, and Google Cloud by Maddie Stigler.pdf";
             GetObjectResponse response = client.GetObjectAsync(request).Result;
 
             MemoryStream docStream = new MemoryStream();
@@ -203,8 +235,8 @@ namespace _301145218_Donekal__Lab2
             AmazonS3Client client = new AmazonS3Client(accessKeyID, secretKey);
 
             GetObjectRequest request = new GetObjectRequest();
-            request.BucketName = "newsamplebucket-pradyumna";
-            request.Key = "Train.pdf";
+            request.BucketName = "new-pradyumna";
+            request.Key = "Docker Complete Guide To Docker For Beginners And Intermediates by Berg, Craig.pdf";
             GetObjectResponse response = client.GetObjectAsync(request).Result;
 
             MemoryStream docStream = new MemoryStream();

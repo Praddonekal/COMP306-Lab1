@@ -29,6 +29,7 @@ using System.IO;
 using Syncfusion.Windows.PdfViewer;
 using Amazon.S3;
 using Amazon.S3.Model;
+using _301145218_Donekal__Lab1;
 
 namespace _301145218_Donekal__Lab2
 {
@@ -39,6 +40,14 @@ namespace _301145218_Donekal__Lab2
     {
         string userEmail;
         string bookTitle;
+        private DynamoDBContext context;
+        static Connection conn = new Connection();
+        readonly AmazonDynamoDBClient client = conn.Connect();
+
+
+        static Connection conn1 = new Connection();
+        AmazonS3Client client1 = conn1.ConnectS3();
+
         public PdfViewer(string email, string title)
         {
             userEmail = email;
@@ -64,14 +73,6 @@ namespace _301145218_Donekal__Lab2
         {
             string bookmark;
 
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
-                    .AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
-            var accessKeyID = builder.Build().GetSection("AWSCredentials").GetSection("AccesskeyID").Value;
-            var secretKey = builder.Build().GetSection("AWSCredentials").GetSection("Secretaccesskey").Value;
-
-            var credentials = new BasicAWSCredentials(accessKeyID, secretKey);
-
-            AmazonDynamoDBClient client = new AmazonDynamoDBClient(credentials, Amazon.RegionEndpoint.USEast1);
             Table table = Table.LoadTable(client, "Bookshelf");
 
             Document doc = await table.GetItemAsync(userEmail);
@@ -113,15 +114,8 @@ namespace _301145218_Donekal__Lab2
 
         public async void closing1()
         {
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
-                                 .AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
-            var accessKeyID = builder.Build().GetSection("AWSCredentials").GetSection("AccesskeyID").Value;
-            var secretKey = builder.Build().GetSection("AWSCredentials").GetSection("Secretaccesskey").Value;
 
-            var credentials = new BasicAWSCredentials(accessKeyID, secretKey);
-
-            AmazonDynamoDBClient client = new AmazonDynamoDBClient(credentials, Amazon.RegionEndpoint.USEast1);
-            DynamoDBContext context = new DynamoDBContext(client);
+            context = new DynamoDBContext(client);
 
             UpdateItemOperationConfig config = new UpdateItemOperationConfig
             {
@@ -138,16 +132,8 @@ namespace _301145218_Donekal__Lab2
 
         public async void closing2()
         {
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
-                                 .AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
-            var accessKeyID = builder.Build().GetSection("AWSCredentials").GetSection("AccesskeyID").Value;
-            var secretKey = builder.Build().GetSection("AWSCredentials").GetSection("Secretaccesskey").Value;
 
-            var credentials = new BasicAWSCredentials(accessKeyID, secretKey);
-
-            AmazonDynamoDBClient client = new AmazonDynamoDBClient(credentials, Amazon.RegionEndpoint.USEast1);
-            DynamoDBContext context = new DynamoDBContext(client);
-
+            context = new DynamoDBContext(client);
             UpdateItemOperationConfig config = new UpdateItemOperationConfig
             {
                 ReturnValues = ReturnValues.AllNewAttributes
@@ -163,15 +149,7 @@ namespace _301145218_Donekal__Lab2
 
         public async void closing3()
         {
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
-                                 .AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
-            var accessKeyID = builder.Build().GetSection("AWSCredentials").GetSection("AccesskeyID").Value;
-            var secretKey = builder.Build().GetSection("AWSCredentials").GetSection("Secretaccesskey").Value;
-
-            var credentials = new BasicAWSCredentials(accessKeyID, secretKey);
-
-            AmazonDynamoDBClient client = new AmazonDynamoDBClient(credentials, Amazon.RegionEndpoint.USEast1);
-            DynamoDBContext context = new DynamoDBContext(client);
+            context = new DynamoDBContext(client);
 
             UpdateItemOperationConfig config = new UpdateItemOperationConfig
             {
@@ -188,18 +166,10 @@ namespace _301145218_Donekal__Lab2
 
         public MemoryStream GetBook1()
         {
-
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
-
-            String accessKeyID = builder.Build().GetSection("AWSCredentials").GetSection("AccesskeyID").Value;
-            String secretKey = builder.Build().GetSection("AWSCredentials").GetSection("Secretaccesskey").Value;
-
-            AmazonS3Client client = new AmazonS3Client(accessKeyID, secretKey);
-
             GetObjectRequest request = new GetObjectRequest();
             request.BucketName = "new-pradyumna";
             request.Key = "AWS Certified Solutions Architect Study Guide, 2nd Edition by Ben Piper, David Clinton.pdf";
-            GetObjectResponse response = client.GetObjectAsync(request).Result;
+            GetObjectResponse response = client1.GetObjectAsync(request).Result;
 
             MemoryStream docStream = new MemoryStream();
             response.ResponseStream.CopyTo(docStream);
@@ -208,17 +178,10 @@ namespace _301145218_Donekal__Lab2
         public MemoryStream GetBook2()
         {
 
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
-
-            String accessKeyID = builder.Build().GetSection("AWSCredentials").GetSection("AccesskeyID").Value;
-            String secretKey = builder.Build().GetSection("AWSCredentials").GetSection("Secretaccesskey").Value;
-
-            AmazonS3Client client = new AmazonS3Client(accessKeyID, secretKey);
-
             GetObjectRequest request = new GetObjectRequest();
             request.BucketName = "new-pradyumna";
             request.Key = "Beginning Serverless Computing Developing with Amazon Web Services, Microsoft Azure, and Google Cloud by Maddie Stigler.pdf";
-            GetObjectResponse response = client.GetObjectAsync(request).Result;
+            GetObjectResponse response = client1.GetObjectAsync(request).Result;
 
             MemoryStream docStream = new MemoryStream();
             response.ResponseStream.CopyTo(docStream);
@@ -226,18 +189,10 @@ namespace _301145218_Donekal__Lab2
         }
         public MemoryStream GetBook3()
         {
-
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
-
-            String accessKeyID = builder.Build().GetSection("AWSCredentials").GetSection("AccesskeyID").Value;
-            String secretKey = builder.Build().GetSection("AWSCredentials").GetSection("Secretaccesskey").Value;
-
-            AmazonS3Client client = new AmazonS3Client(accessKeyID, secretKey);
-
             GetObjectRequest request = new GetObjectRequest();
             request.BucketName = "new-pradyumna";
             request.Key = "Docker Complete Guide To Docker For Beginners And Intermediates by Berg, Craig.pdf";
-            GetObjectResponse response = client.GetObjectAsync(request).Result;
+            GetObjectResponse response = client1.GetObjectAsync(request).Result;
 
             MemoryStream docStream = new MemoryStream();
             response.ResponseStream.CopyTo(docStream);

@@ -26,6 +26,8 @@ using Table = Amazon.DynamoDBv2.DocumentModel.Table;
 using _301145218_Donekal__Lab2.Models;
 using Microsoft.Extensions.Configuration;
 using System.IO;
+using _301145218_Donekal__Lab1;
+
 namespace _301145218_Donekal__Lab2
 {
     /// <summary>
@@ -34,6 +36,10 @@ namespace _301145218_Donekal__Lab2
     public partial class BooksList : Window
     {
         public string userEmail;
+        private DynamoDBContext context;
+        static Connection conn = new Connection();
+        readonly AmazonDynamoDBClient client = conn.Connect();
+
         public BooksList(string email)
         {
             InitializeComponent();
@@ -43,14 +49,7 @@ namespace _301145218_Donekal__Lab2
 
         public async Task loadDataAsync(string email)
         {
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
-                                .AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
-            var accessKeyID = builder.Build().GetSection("AWSCredentials").GetSection("AccesskeyID").Value;
-            var secretKey = builder.Build().GetSection("AWSCredentials").GetSection("Secretaccesskey").Value;
 
-            var credentials = new BasicAWSCredentials(accessKeyID, secretKey);
-
-            AmazonDynamoDBClient client = new AmazonDynamoDBClient(credentials, Amazon.RegionEndpoint.USEast1);
             Table table = Table.LoadTable(client, "Bookshelf");
 
             Document doc = await table.GetItemAsync(email);

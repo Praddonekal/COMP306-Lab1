@@ -26,6 +26,8 @@ using Table = Amazon.DynamoDBv2.DocumentModel.Table;
 using _301145218_Donekal__Lab2.Models;
 using Microsoft.Extensions.Configuration;
 using System.IO;
+using Amazon.S3;
+using _301145218_Donekal__Lab1;
 
 namespace _301145218_Donekal__Lab2
 {
@@ -36,9 +38,11 @@ namespace _301145218_Donekal__Lab2
     {
         private User user;
         private string tableName = "Users";
-        private AmazonDynamoDBClient client;
         private DynamoDBContext context;
 
+
+        static Connection conn = new Connection();
+        readonly AmazonDynamoDBClient client = conn.Connect();
 
 
         public MainWindow()
@@ -67,12 +71,6 @@ namespace _301145218_Donekal__Lab2
 
         private async void creatingTable()
         {
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
-                                .AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
-            var accessKeyID = builder.Build().GetSection("AWSCredentials").GetSection("AccesskeyID").Value;
-            var secretKey = builder.Build().GetSection("AWSCredentials").GetSection("Secretaccesskey").Value;
-
-            var credentials = new BasicAWSCredentials(accessKeyID, secretKey);
 
 
             if (string.IsNullOrEmpty(TxtUserEmail.Text) || string.IsNullOrEmpty(TxtPassword.Password))
@@ -81,7 +79,6 @@ namespace _301145218_Donekal__Lab2
             }
             else
             {
-                client = new AmazonDynamoDBClient(credentials, Amazon.RegionEndpoint.USEast1);
                 context = new DynamoDBContext(client);
                 List<string> currentTables = client.ListTablesAsync().Result.TableNames;
 
@@ -161,15 +158,7 @@ namespace _301145218_Donekal__Lab2
         }
         private async Task saveUser(DynamoDBContext context)
         {
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
-                                .AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
-            var accessKeyID = builder.Build().GetSection("AWSCredentials").GetSection("AccesskeyID").Value;
-            var secretKey = builder.Build().GetSection("AWSCredentials").GetSection("Secretaccesskey").Value;
-
-            var credentials = new BasicAWSCredentials(accessKeyID, secretKey);
-
             bool userExisted;
-            AmazonDynamoDBClient client = new AmazonDynamoDBClient(credentials, Amazon.RegionEndpoint.USEast1);
             Table table = Table.LoadTable(client, "Users");
             Table table2 = Table.LoadTable(client, "Bookshelf");
             string email = TxtUserEmail.Text;
@@ -213,14 +202,7 @@ namespace _301145218_Donekal__Lab2
 
         public async Task loadDataAsync()
         {
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
-                                .AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
-            var accessKeyID = builder.Build().GetSection("AWSCredentials").GetSection("AccesskeyID").Value;
-            var secretKey = builder.Build().GetSection("AWSCredentials").GetSection("Secretaccesskey").Value;
 
-            var credentials = new BasicAWSCredentials(accessKeyID, secretKey);
-
-            AmazonDynamoDBClient client = new AmazonDynamoDBClient(credentials, Amazon.RegionEndpoint.USEast1);
             Table table = Table.LoadTable(client, "Users");
             string email = TxtUserEmail.Text;
             string password = TxtPassword.Password;

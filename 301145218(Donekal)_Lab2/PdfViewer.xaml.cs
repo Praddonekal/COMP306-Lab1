@@ -116,7 +116,6 @@ namespace _301145218_Donekal__Lab2
         {
 
             context = new DynamoDBContext(client);
-
             UpdateItemOperationConfig config = new UpdateItemOperationConfig
             {
                 ReturnValues = ReturnValues.AllNewAttributes
@@ -128,6 +127,8 @@ namespace _301145218_Donekal__Lab2
             user["LastPage1"] = pdfviewer1.CurrentPageIndex; 
             await table.UpdateItemAsync(user, config);
             MessageBox.Show("SnapShot Successful");
+            BooksList booksForm = new BooksList(userEmail);
+            booksForm.Show();
         }
 
         public async void closing2()
@@ -145,6 +146,8 @@ namespace _301145218_Donekal__Lab2
             user["LastPage2"] = pdfviewer1.CurrentPageIndex;
             await table.UpdateItemAsync(user, config);
             MessageBox.Show("SnapShot Successful");
+            BooksList booksForm = new BooksList(userEmail);
+            booksForm.Show();
         }
 
         public async void closing3()
@@ -162,6 +165,8 @@ namespace _301145218_Donekal__Lab2
             user["LastPage3"] = pdfviewer1.CurrentPageIndex;
             await table.UpdateItemAsync(user, config);
             MessageBox.Show("SnapShot Successful");
+            BooksList booksForm = new BooksList(userEmail);
+            booksForm.Show();
         }
 
         public MemoryStream GetBook1()

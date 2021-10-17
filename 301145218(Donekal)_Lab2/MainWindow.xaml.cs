@@ -50,7 +50,6 @@ namespace _301145218_Donekal__Lab2
             InitializeComponent();
             user = new User();
             this.BtnLogin.IsEnabled = true;
-
         }
 
 
@@ -220,9 +219,7 @@ namespace _301145218_Donekal__Lab2
                     string pass = userPasword;
                     if (email == result & password == pass)
                     {
-
                         BooksList booksForm = new BooksList(emailInput);
-
                         MessageBox.Show("Successfully Logged In");
                         booksForm.Show();
                     }

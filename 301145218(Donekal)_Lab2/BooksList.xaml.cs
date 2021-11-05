@@ -128,8 +128,7 @@ namespace _301145218_Donekal__Lab2
             }
 
             booksLabel.Content = "Hello " + emailInput;
-            
-           
+
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)

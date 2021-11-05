@@ -70,8 +70,6 @@ namespace _301145218_Donekal__Lab2
 
         private async void creatingTable()
         {
-
-
             if (string.IsNullOrEmpty(TxtUserEmail.Text) || string.IsNullOrEmpty(TxtPassword.Password))
             {
                 MessageBox.Show("Fields can't be empty!", "Alert", MessageBoxButton.OK, MessageBoxImage.Exclamation);

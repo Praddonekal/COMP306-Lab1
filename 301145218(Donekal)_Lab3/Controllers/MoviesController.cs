@@ -235,62 +235,7 @@ namespace _301145218_Donekal__Lab3.Controllers
             }
         }
 
-
-        [HttpGet]
-        public ActionResult AddMovieFile(int id)
-        {
-
-            return View(id);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> AddMovieFile(IFormFile postedFile, int id)
-        {
-            Movie movie = _context.Movies.FirstOrDefault(m => m.MovieId == id);
-            var fileTransferUtility = new TransferUtility(amazonS3);
-            string filePath = postedFile.FileName.ToString();
-            try
-            {
-                if (postedFile.Length > 0)
-                {
-                    var tempPath = Path.GetTempFileName();
-
-                    using (var stream = new FileStream(tempPath, FileMode.Create))
-                    {
-                        await postedFile.CopyToAsync(stream);
-                    }
-                    string keyName = postedFile.FileName;
-                    filePath = tempPath;
-                    var fileTransferUtilityRequest = new TransferUtilityUploadRequest
-                    {
-                        BucketName = BUCKET_NAME,
-                        FilePath = filePath,
-                        StorageClass = S3StorageClass.StandardInfrequentAccess,
-                        PartSize = 6291456,
-                        Key = keyName,
-                        CannedACL = S3CannedACL.PublicRead
-                    };
-                    fileTransferUtilityRequest.Metadata.Add("MovieId", movie.MovieId.ToString());
-                    await fileTransferUtility.UploadAsync(fileTransferUtilityRequest);
-
-                    movie.FilePath = keyName;
-                    _context.Update(movie);
-                    await _context.SaveChangesAsync();
-                    TempData["MovieUploaded"] = $"{movie.MovieName} is successfully uploaded!";
-                    return RedirectToAction(nameof(Index));
-                }
-            }
-            catch (AmazonS3Exception e)
-            {
-                Console.WriteLine("Error occured. Message:'{0}' ", e.Message);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Unknown error occured. Message: '{0}'", e.Message);
-            }
-            return View();
-        }
-
+        
         [HttpPost]
         public async Task<IActionResult> DownloadMovie(int id)
         {

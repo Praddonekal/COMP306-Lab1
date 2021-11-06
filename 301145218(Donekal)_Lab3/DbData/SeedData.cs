@@ -31,6 +31,7 @@ namespace _301145218_Donekal__Lab3.DbData
                         ReleaseDate = DateTime.Parse("2021-9-30"),
                         Genre = Genre.ACTION,
                         Rating = 3,
+                        FilePath = "AWS Certified Solutions Architect Study Guide, 2nd Edition by Ben Piper, David Clinton.pdf",
                         Description = "James Bond is enjoying a tranquil life in Jamaica after leaving active service. However, his peace is short-lived as his old CIA friend, Felix Leiter, shows up and asks for help.",
                         ImageUrl = "https://m.media-amazon.com/images/I/616x9pOCRTL._AC_SY355_.jpg"
                     },
